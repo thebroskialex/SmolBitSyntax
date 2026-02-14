@@ -1,0 +1,84 @@
+{
+	"name": "smolbitsyn",
+	"displayName": "SmolBit Syntax",
+	"description": "Support for SmolBit file syntax",
+	"version": "1.0.3",
+	"publisher": "smol",
+	"engines": {
+		"vscode": "^1.70.0"
+	},
+	"repository": {},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"configuration":[
+			{
+				"title": "SmolBit",
+				"properties": {
+					"files.associations":{
+						"type": "object",
+						"default":{
+							"*.sbc":"code-binary",
+							"*.sbt":"code-text"
+						}
+					}
+				}
+			}
+		],
+		"iconThemes": [
+			{
+				"id": "smolbit-icons",
+				"label": "SmolBit Icons",
+				"path": "./icons-config.json"
+			}
+		],
+		"languages": [
+			{
+				"id": "smolbit",
+				"aliases": [
+					"SmolBit",
+					"smbt",
+					"smasm"
+				],
+				"extensions": [
+					".smolbit",
+					".sbt"
+				],
+				"configuration": "./language-configuration.json",
+				"icon": {
+					"light": "./icons/script.svg",
+					"dark": "./icons/script.svg"
+				}
+			},
+			{
+				"id": "smolbit.compiled",
+				"aliases": [
+					"SmolBit Compiled",
+					"Compiled Smolbit",
+					"sbc"
+				],
+				"extensions": [
+					".smbt",
+					".sbc"
+				],
+				"configuration": "./compiled-config.json",
+				"icon": {
+					"dark": "./icons/gear.svg",
+					"light": "./icons/gear.svg"
+				},
+				"mimetypes": ["applications/x-smolbit-compiled"]
+			}
+		],
+		"grammars": [
+			{
+				"language": "smolbit",
+				"scopeName": "source.smolbit",
+				"path": "./syntaxes/smolbit.tmLanguage"
+			}
+		]
+	},
+	"extensionRecommendations": [
+  		"ms-vscode.hexeditor"
+	]
+}
