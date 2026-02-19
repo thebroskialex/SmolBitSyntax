@@ -21,6 +21,12 @@
 			<string>"([\s|\S]*)"</string>
 		</dict>
 		<dict>
+			<key>name</key>
+			<string>string.smolbit</string>
+			<key>match</key>
+			<string>'([\s|\S]*)'</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>(DEF|CLL|UDF)[\(\s]?([0-9a-f])</string>
 			<key>captures</key>

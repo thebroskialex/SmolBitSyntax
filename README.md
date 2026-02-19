@@ -1,2 +1,2 @@
 # SmolBitSyntax
-The VSCode Extension for the SmolBit language grammar and icons
+The VSCode Extension for the SmolBit language, grammar, and icons

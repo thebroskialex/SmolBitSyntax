@@ -2,31 +2,127 @@
 	"name": "smolbitsyn",
 	"displayName": "SmolBit Syntax and Icons",
 	"description": "Support for SmolBit file syntax and icons",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"publisher": "Smol",
 	"engines": {
 		"vscode": "^1.70.0"
 	},
+	"license":"MIT",
 	"repository": {},
 	"categories": [
 		"Programming Languages"
 	],
-	"icon":"./icons/smolbit.png",
+	"icon":"./icons/smolbitlogo.png",
 	"contributes": {
-		"configuration":[
+		"commands":[
 			{
-				"title": "SmolBit",
-				"properties": {
-					"files.associations":{
-						"type": "object",
-						"default":{
-							"*.sbc":"code-binary",
-							"*.sbt":"code-text"
-						}
-					}
-				}
+				"command": "smolbit.compileAndRun",
+				"title": "Compile and Run",
+				"icon": "$(play)"
+			},
+			{
+				"command": "smolbit.compileAndDebug",
+				"title": "Compile and Debug",
+				"icon": "$(debug)"
+			},
+			{
+				"command": "smolbit.compile",
+				"title": "Compile",
+				"icon": "$(save)"
 			}
 		],
+		"menus":{
+			"editor/title":[
+				{
+					"command": "smolbit.compileAndRun",
+					"group": "navigation",
+					"when": "resourceLangId == smolbit"
+				},
+				{
+					"command": "smolbit.compileAndDebug",
+					"group": "navigation",
+					"when": "resourceLangId == smolbit"
+				},
+				{
+					"command": "smolbit.compile",
+					"group": "navigation",
+					"when": "resourceLangId == smolbit"
+				}
+			]
+		},
+		"configurationDefaults": {
+			"editor.tokenColorCustomizations": {
+				"textMateRules": [
+            {
+                "scope": "constant.numeric.smolbit",
+                "settings": {
+                    "foreground": "#B5CEA8"
+                }
+            },
+            {
+                "scope": "support.function.smolbit",
+                "settings": {
+                    "foreground": "#DCDCAA"
+                }
+            },
+            {
+                "scope": "keyword.operator.smolbit",
+                "settings":{
+                    "foreground": "#569CD6"
+                }
+            },
+            {
+                "scope": "entity.name.function.smolbit",
+                "settings": {
+                    "foreground": "#4EC9B0"
+                }
+            },
+            {
+                "scope": "storage.type.smolbit",
+                "settings": {
+                    "foreground": "#F4D67A"
+                }
+            },
+            {
+                "scope": "support.variable.smolbit",
+                "settings": {
+                    "foreground": "#9CDCFE"
+                }
+            },
+            {
+                "scope": "keyword.control.smolbit",
+                "settings": {
+                    "foreground": "#C586C0"
+                }
+            },
+            {
+                "scope": "keyword.operator.comparison.smolbit",
+                "settings": {
+                    "foreground": "#D4D4D4"
+                }
+            },
+            {
+                "scope": "support.variable.global.smolbit",
+                "settings": {
+                    "foreground": "#4FC1FF"
+                }
+            },
+            {
+                "scope": "string.smolbit",
+                "settings": {
+                    "foreground": "#CE9178",
+                    "fontStyle": "bold"
+                }
+            },
+			{
+				"scope": "comment.smolbit",
+				"settings": {
+					"foreground": "#6A9955"
+				}
+			}
+				]
+			}
+		},
 		"iconThemes": [
 			{
 				"id": "smolbit-icons",
@@ -81,5 +177,7 @@
 	},
 	"extensionRecommendations": [
   		"ms-vscode.hexeditor"
-	]
+	],
+	"main":"./extension.js",
+	"activationEvents": ["onLanguage:smolbit"]
 }
